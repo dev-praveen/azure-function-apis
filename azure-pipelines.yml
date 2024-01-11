@@ -11,6 +11,14 @@ pool:
   name: azureownagent
 
 steps:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'LocalDirectory'
+    jdkFile: 'C:\Program Files\Java\jdk-17'
+    jdkDestinationDirectory: 'C:\agents\jdk_path'
+    cleanDestinationDirectory: true
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
